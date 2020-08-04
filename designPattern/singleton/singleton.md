@@ -19,4 +19,5 @@ public:
 
 `static Singleton INSTANCE;`这条语句只会调用一次
 
-[1]: https://stackoverflow.com/questions/63112299/how-to-understand-singleton-in-c
+[How to understand Singleton in c++?](https://stackoverflow.com/questions/63112299/how-to-understand-singleton-in-c)
+
