@@ -1,7 +1,7 @@
 # 计算机知识汇总
-## [leetcode](leetcode/readme.md)
+## [leetcode](leetcode/leetcode.md)
 
-## [stl](stl/readme.md)
+## [stl](stl/stl.md)
 
 ## [cpp](cpp/cpp.md)
 
