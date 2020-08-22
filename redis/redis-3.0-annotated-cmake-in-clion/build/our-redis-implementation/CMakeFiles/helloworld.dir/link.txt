@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/helloworld.dir/my_sds.c.o CMakeFiles/helloworld.dir/my_anet.c.o CMakeFiles/helloworld.dir/__/src/zmalloc.c.o CMakeFiles/helloworld.dir/__/src/setproctitle.c.o -o helloworld 

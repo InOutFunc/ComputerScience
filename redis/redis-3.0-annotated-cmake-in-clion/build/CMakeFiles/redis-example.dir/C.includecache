@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../deps/hiredis/sds.h
+sys/types.h
+-
+stdarg.h
+-
+
+/home/redis3.0/src/test/sds_test.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+sds.h
+/home/redis3.0/src/test/sds.h
+testhelp.h
+/home/redis3.0/src/test/testhelp.h
+limits.h
+/home/redis3.0/src/test/limits.h
+
