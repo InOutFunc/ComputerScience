@@ -1,3 +1,5 @@
+# 问题 + 思路 + 算法 + 技巧
+
 # for loop
 
 ```cpp
@@ -58,3 +60,4 @@ TreeNode *divide(const vector<int> &pre, int pLeft, int pRight, const vector<int
 }
 ```
 
+# 4
