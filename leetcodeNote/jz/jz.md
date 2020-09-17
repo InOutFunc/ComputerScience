@@ -530,34 +530,177 @@ if (stack2.empty()) {
 ## 63
 
 - 问题
+
+不断插入的数据流，获取中位数
+
 - 思路
+
+奇数时是位于中间的数，偶数时是中间两数的平均值。将数分成small和large两部分，small是最大堆，large是最小堆。small中数量大于等于large
+
 - 算法
+
+先将数据放入small中，取出混合后的最大值。然后放入large中。
+
+若small大小小于large，则将large最小值放入small中。
+
 - 技巧
+
+```cpp
+// 根据用途来命名
+priority_queue<int> small;
+// 最小堆的定义，greater<int>表示从小到大
+priority_queue<int, vector<int>, greater<int>> large;
+```
 
 ## 64
 
 - 问题
+
+一维数组，窗口大小，求每个窗口内的最大值
+
 - 思路
+  - 直接遍历每个窗口求最大值
+  - 维护一个单调双端队列、队列的front是此刻滑动串口的最大值。为了比较下标，队列里存储的是下标值
 - 算法
+
+遍历数组，看此下标加入队列后，队列是否超过窗口大小了。
+
+从后向前遍历，维护队列的单调递减性。插入新的下标。
+
+在符合窗口大小时，每次都输出最大值
+
 - 技巧
+
+注意最后输出结果时不要输出下标了
+
+```cpp
+if (i >= size - 1) {
+    res.push_back(num[dq.front()]);
+}
+```
 
 ## 65
 
 - 问题
+
+二维数组，路径是否包含字符串
+
 - 思路
+
+分治思想、当前点 &&（divide1 || divide2 || divide3 || divide4)，四个divide是并列的，visited改回来。cur也是并列的，也要改回来。
+
 - 算法
+
+超过边界了返回，visited也返回，成功了也返回
+
 - 技巧
+
+```cpp
+// 直接比较最后一个字符是否符合;
+if (level == len && matrix[row * cols + col] == str[level - 1]);
+// 将return true的条件提到最后面
+if (level == len && matrix[row * cols + col] == str[level - 1])
+// 返回
+bool res = ...;
+...;
+return res;
+而不是;
+return ...;
+```
+
+
 
 ## 66
 
 - 问题
+
+二位数组，移动，坐标和小于等于18，格子数量
+
 - 思路
+
+分治的思想、当前点加上四个方向上的返回值。通过visited来表示分治后的子问题。当前点 + divide
+
 - 算法
+
+在超过边界或者已经visited了返回0，其它情况就是当前点加上四个子问题
+
 - 技巧
+  - 提取isValid函数，isValid里面还可以再调用函数
+
+```cpp
+int divide(int threshold, int rows, int cols, int row, int col, vector<vector<bool>> &visited)
+{
+    if (row < 0 || row >= rows || col < 0 || col >= cols) {
+        return 0;
+    }
+    if (!isValid(row, col)) {
+        return 0;
+    }
+    if (visited[row][col]) {
+        return 0;
+    }
+    visited[row][col] = true;
+    return 1 + divide(threshold, rows, cols, row + 1, col, visited)
+        + divide(threshold, rows, cols, row - 1, col, visited)
+        + divide(threshold, rows, cols, row, col + 1, visited)
+        + divide(threshold, rows, cols, row, col - 1, visited);
+}
+
+bool isValid(int row, int col, int threshold)
+{
+    return getSum(row) + getSum(col) <= threshold;
+}
+int getSum(int n)
+{
+    int sum = 0;
+    while (n != 0) {
+        sum = sum + n % 10; // 注意sum +
+        n = n / 10;
+    }
+    return sum // 注意要return
+}
+```
 
 ## 67
 
 - 问题
+
+长度n，分成m段，m >1，乘积最大是多少
+
 - 思路
+
+假设n分为m段，实际只需求(1-i) * (i + 1 ~ m)，因为那m段也是有1-i分来的
+
 - 算法
+
+遍历n，求dp[i]。
+
+求dp[i]的时候、遍历j，将i在不同位置分成两段，取最大值
+
 - 技巧
+  - 相乘时123的长度和要求输出的不同，边界值返回
+  - 方便起见，定义dp长度为n+1，这样dp[i]就表示长度为i
+  - j的长度要明确，此处就表示第一段的长度
+
+```cpp
+if (n <= 1) {
+    return 0;
+}
+if (n == 2) {
+    return 1;
+}
+if (n == 3) {
+    return 2;
+}
+vector<int> dp(n + 1);
+dp[1] = 1;
+dp[2] = 2;
+dp[3] = 3;
+for (int i = 4; i < n + 1; i++) {
+    for (int j = 1; j < n / 2; j++) {
+        dp[i] = max(dp[i], dp[j] * dp[i - j]);
+    }
+}
+return dp[n]
+```
+
