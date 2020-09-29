@@ -70,4 +70,12 @@ return 0;
 
 }
 
+ ## forbid
+
+1、
+
+[Why “using namespace X;” is not allowed inside class/struct level?](https://stackoverflow.com/questions/6326805/why-using-namespace-x-is-not-allowed-inside-class-struct-level)
+
  
+
+来自 <https://stackoverflow.com/questions/6326805/why-using-namespace-x-is-not-allowed-inside-class-struct-level> 

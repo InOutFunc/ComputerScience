@@ -123,3 +123,9 @@ For range based loop使用const修饰
  
 
 可读性、引用传参时防止变量被修改
+
+## const成员函数
+
+const成员函数不能改变成员变量的值、在调用时成员变量作为参数传值可以
+
+[What is meant with “const” at end of function declaration? [duplicate\]](https://stackoverflow.com/questions/3141087/what-is-meant-with-const-at-end-of-function-declaration)

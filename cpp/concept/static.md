@@ -71,3 +71,33 @@ Where your statics go depends on whether they are *zero-initialized*. *zero-init
 ## template static member
 
 https://www.geeksforgeeks.org/templates-and-static-variables-in-c/
+
+## function
+
+1、普通函数
+
+Remove static keyword in method definition. Keep it just in your class definition.
+
+static keyword placed in .cpp file means that a certain function has a static linkage, ie. it is accessible only from other functions in the same file.
+
+ 
+
+来自 <https://stackoverflow.com/questions/5980520/static-methods-in-c> 
+
+Unnamed namespaces still have the advantage of allowing you to define translation-unit-local types. Please see [this](https://stackoverflow.com/questions/4422507/superiority-of-unnamed-namespace-over-static) SO question for more details.
+
+ 
+
+来自 <https://stackoverflow.com/questions/154469/unnamed-anonymous-namespaces-vs-static-functions> 
+
+ 
+
+ 
+
+2、类的成员函数
+
+属于类、只有一份、不存在this指针
+
+Class::fun来调用
+
+Instance.fun也可以调用、但不好、如果重名就不知道调用哪一个了。因为传参时本来就不会传入this指针

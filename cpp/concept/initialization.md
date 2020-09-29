@@ -46,3 +46,8 @@ static const int arr[] = {16,2,77,29};
 
 vector<int> vec (arr, arr + sizeof(arr) / sizeof(arr[0]) );
 
+## 初始化结构体成员变量
+
+StrToPara.componentInfo的初始化
+
+[Correct way of initializing a struct in a class constructor](https://stackoverflow.com/questions/17080975/correct-way-of-initializing-a-struct-in-a-class-constructor)
